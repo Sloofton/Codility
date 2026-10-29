@@ -1,0 +1,22 @@
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+
+def solution(A, K):
+    # If the length of the array A is empty, directly return A
+    if len(A) == 0:
+        return A 
+    #Let L,R be the length of the array and remainder when dividing K with L
+    L = len(A)
+    R = K%L
+    #Repeat the swapping process R times
+    for i in range(R):
+        #Save the current last element
+        last = A[L-1]
+        #Shift all values to the right 
+        for j in range(L-1, 0, -1):
+            A[j]=A[j-1]
+        #From the last variable, we can now put it in the front
+        A[0]=last
+    #Returns the final array
+    return A
+    pass

@@ -1,0 +1,18 @@
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+
+def solution(X, A):
+    #Create a boolean array for the leaf position
+    leafarray = [False]*(X+1)
+    #Set a counter of the distinct leaves
+    num_leaves = 0
+    for i in range(len(A)):
+        position = A[i]
+        #If the current leaf's position is false, change it to true and add one to the counter
+        if leafarray[position] == False:
+           leafarray[position] = True
+           num_leaves += 1
+        #Once the counter reaches X, return the number of indices it went through (i)
+        if num_leaves == X:
+            return i
+    return -1

@@ -1,0 +1,19 @@
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+
+def solution(A):
+    #Set a counter for the east cars and the passing cars
+    counter_0 = 0
+    passing_cars = 0
+    limit = 1000000000
+    for i in range(len(A)):
+        #If the value is 0, add to the east (0) counter 
+        if A[i] == 0:
+            counter_0 += 1
+        #If the value is 1 and the passing cars is below the limit, add the 0 counter
+        if A[i] == 1:
+            if passing_cars > limit:
+                return -1
+            passing_cars += counter_0
+    return passing_cars
+

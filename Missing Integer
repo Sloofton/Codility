@@ -1,0 +1,16 @@
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+
+def solution(A):
+    L = len(A)
+    #Create a boolean array of Falses with a length of L+2 to conver the index 0 and the next integer if the list is already
+    #ordered
+    numarray = [False]*(L+2)
+    for num in A:
+        #If the number is between 1 and the length of the array change the index of num in numarray to true
+        if num >= 1 and num <= L:
+            numarray[num] = True
+    #Loop through the numarray to find the first index that reads false
+    for i in range(1, L+2):
+        if numarray[i] == False:
+            return i

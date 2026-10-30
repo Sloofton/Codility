@@ -1,0 +1,18 @@
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+
+def solution(A):
+    L = len(A)
+    #Create a boolean array of length L+1 to ignore the 0 index
+    checked_num = [False]*(L+1)
+    for i in range(L):
+        current_num = A[i]
+        #If the current number (current_num) is less than 1 or greater than the size of the array
+        #or if the index of the number in the boolean array is already true, return 0
+        if current_num < 1 or current_num > L:
+            return 0
+        if checked_num[current_num] == True:
+            return 0
+        #Change the index of the boolean to true
+        checked_num[current_num] = True
+    return 1
